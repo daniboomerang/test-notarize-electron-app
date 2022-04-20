@@ -1,0 +1,67 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^17.2.0",
+    "electron-builder": "^22.14.5",
+    "electron-notarize": "^1.1.1"
+  },
+  "build": {
+    "appId": "test.notarize.app",
+    "productName": "Test Notarize",
+    "target": [
+      "nsis"
+    ],
+    "copyright": "Copyright © year ${author}",
+    "asar": true,
+    "nsis": {
+      "artifactName": "Test Notarize.${ext}",
+      "uninstallDisplayName": "Test Notarize"
+    },
+    "mac": {
+      "category": "public.app-category.games",
+      "icon": "build/icon.png",
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "target": [
+        "pkg"
+      ]
+    },
+    "pkg": {
+      "artifactName": "Test Notarize.${ext}",
+      "installLocation": "/Applications",
+      "background": {
+        "file": "build/pkg-background.png",
+        "alignment": "bottomleft"
+      },
+      "allowAnywhere": true,
+      "allowCurrentUserHome": true,
+      "allowRootDirectory": true,
+      "isVersionChecked": true,
+      "isRelocatable": false,
+      "overwriteAction": "upgrade"
+    },
+    "files": [
+      "main.js"
+    ]
+  }
+}
